@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <input type="text" id="ingredient-input" />
+
+        <input type="checkbox" id="glutenB" name="glutenB" onclick="1" />
+        <label for="glutenB">gluten</label><br />
+        <input type="checkbox" id="dairyB" name="dairyB" onclick="1" />
+        <label for="dairyB">dairy</label><br />
+
+        <button class="buttons" id="Search">Search</button>
+      </div>
+      <div class="AllRecipes"></div>
+    </div>
+    <script id="IngredentRecipes-template" type="text/x-handlebars-template">
+      {{#each DataRE}}
+        <div class="Recipes">
+          <a href="{{href}}" id="titleR"><i>{{title}} </i></a>
+          <img class="pictureR" src="{{thumbnail}}" />
+          <p id="ingredientsR">ingredients</p>
+          <ul>
+            {{#each ingredients}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+
+      {{/each}}
+    </script>
+
+    <script src="Renderer.js"></script>
+    <script src="APIRecipesManager.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
